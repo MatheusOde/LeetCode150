@@ -8,9 +8,9 @@ class Solution(object):
 
         low = min(citations)
         high = max(citations)
-
+        mid = (low + high) // 2
+        mid += 1
         while low <= high:
-            mid = (low + high) // 2
             print("mid ", mid)
             print("high ", high)
             print("low ", low)
@@ -25,29 +25,24 @@ class Solution(object):
                         passH = True
                         break
 
+            print("passH: ", passH)
             if passH and mid > low:
                 low = mid
             else:
                 high = mid
 
             if high == low:
+                if high > len(citations):
+                    return len(citations)
                 return low
             print("low: ", low)
-            # count = sum(1 for num in citations if num == mid)
-
-            # if count >= x:
-            #     return mid
-            # elif count < x:
-            #     low = mid + 1
-            # else:
-            #     high = mid - 1
+            mid = (low + high) // 2
 
         return -1
 
 
 def main():
-    nums = [1, 3, 1]
-
+    nums = [100]
     solution_instance = Solution()
     print(solution_instance.hIndex(nums))
     print(nums)
