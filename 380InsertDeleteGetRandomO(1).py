@@ -4,15 +4,15 @@ import random
 class RandomizedSet(object):
 
     def __init__(self):
-        self.list = []
+        self.dict = {}
 
     def insert(self, val):
         """
         :type val: int
         :rtype: bool
         """
-        if val not in self.list:
-            self.list.append(val)
+        if val not in self.dict:
+            self.dict[val] = True
             return True
         else:
             return False
@@ -22,9 +22,8 @@ class RandomizedSet(object):
         :type val: int
         :rtype: bool
         """
-        if val in self.list:
-            index = self.list.index(val)
-            self.list.pop(index)
+        if val in self.dict:
+            del self.dict[val]
             return True
         else:
             return False
@@ -33,7 +32,7 @@ class RandomizedSet(object):
         """
         :rtype: int
         """
-        return random.choice(self.list)
+        return random.choice(list(self.dict.keys()))
 
 
 # Your RandomizedSet object will be instantiated and called as such:
