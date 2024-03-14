@@ -6,6 +6,11 @@ class Solution(object):
         """
         array = [1] * len(nums)
         index = 0
+        multiplier = 1
+        for i in range(len(nums)):
+            multiplier *= nums[i]
+            
+        
         while index < len(nums):
             for i in range(0, index):
                 array[index] *= nums[i]
@@ -18,7 +23,7 @@ class Solution(object):
 
 
 def main():
-    nums = [-1, 1, 0, -3, 3]
+    nums = [1,2 ,3, 4]
     solution_instance = Solution()
     print("Solution instance: ", solution_instance.productExceptSelf(nums))
 
