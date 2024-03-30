@@ -1,3 +1,1 @@
-
-                if high > len(citations):
-                    return len(citations)
+10
